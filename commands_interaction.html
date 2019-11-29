@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Servant</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="shortcut icon" type="image/x-icon" href="images/servant_ava.png" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Prompt">
+<link rel="stylesheet" href="css/styles.css">
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="js/materialize.js"></script>
+<script src="js/app.js"></script>
+<script src="js/snow.js"></script>
+</head>
+<body>
+<canvas id="sky"></canvas>
+<nav class="nav-wrapper">
+  <div class="logo-wrapper">
+    <a href="/">
+      <div class="logo"> 
+          <img src="images/servant_ava.png">
+          <h1>Servant</h1>
+      </div>
+    </a>
+    <div class="burger-icon"><i class="fas fa-bars"></i> MENU</div>
+  </div>
+  <ul class="nav-items main-nav mobile-hide">
+    <li class="list-item"><a href="/">Home</a></li>
+    <li class="list-item"><font color="#7289da">Commands</font></li>
+    <li class="list-item"><a href="faq">FAQ</a></li>
+    <li class="list-item"><a href="donate">Donate</a></li>
+  </ul>
+</nav>
+<div class="main-wrapper">
+  <div class="commands-wrapper">
+    <div class="commands-featured">
+      <div id="meta"></div>
+      <h1>Commands</h1>
+    </div>
+    <div class="main-content">
+      <ul class="collapsible">
+          <li>
+            <div class="collapsible-header"><i class="far fa-comments"></i> Beg</div>
+            <div class="collapsible-body">
+              <table class="table">
+                <tr>
+                  <td class="td-l"><h3><i class="fas fa-info-circle"></i> Description</h3></td>
+                  <td class="td-r"><h3><i class="fas fa-signature"></i> Alias</h3></td>
+                </tr>
+                <tr>
+                  <td class="td-l"><p>
+                    Beg someone.
+                  </p></td>
+                  <td class="td-r"><p>
+                    please<br/>
+                    pls<br/>
+                    plz
+                  </p></td>
+                </tr>
+              </table>
+              <h3><i class="fas fa-check-circle"></i> Permissions</h3>
+              <table class="table">
+                <tr>
+                  <td class="td-l"><span class="titleme">User</span></td>
+                  <td class="td-r"><span class="titleme">Servant</span></td>
+                </tr>
+                <tr>
+                  <td class="td-l">None</td>
+                  <td class="td-r">
+                    <span class="highlightme">Read Text Channels & See Voice Channels</span>, <span class="highlightme">Send Messages</span>, <span class="highlightme">Read Message History</span>, 
+                    <span class="highlightme">Embed Links</span>
+                  </td>
+                </tr>
+              </table>
+              <p></p> <!-- For margin-bottom at .collapsible p -->
+              <h3><i class="fas fa-exclamation-circle"></i> Usage</h3>
+              <p>
+                Command: <span class="highlightme">!beg @user</span>
+              </p>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="far fa-comments"></i> Cookie</div>
+            <div class="collapsible-body">
+              <table class="table">
+                <tr>
+                  <td class="td-l"><h3><i class="fas fa-info-circle"></i> Description</h3></td>
+                  <td class="td-r"><h3><i class="fas fa-signature"></i> Alias</h3></td>
+                </tr>
+                <tr>
+                  <td class="td-l"><p>
+                    Give someone a cookie
+                  </p></td>
+                  <td class="td-r"><p>
+                    biscuit
+                  </p></td>
+                </tr>
+              </table>
+              <h3><i class="fas fa-check-circle"></i> Permissions</h3>
+              <table class="table">
+                <tr>
+                  <td class="td-l"><span class="titleme">User</span></td>
+                  <td class="td-r"><span class="titleme">Servant</span></td>
+                </tr>
+                <tr>
+                  <td class="td-l">None</td>
+                  <td class="td-r">
+                    <span class="highlightme">Read Text Channels & See Voice Channels</span>, <span class="highlightme">Send Messages</span>, <span class="highlightme">Read Message History</span>, 
+                    <span class="highlightme">Embed Links</span>
+                  </td>
+                </tr>
+              </table>
+              <p></p> <!-- For margin-bottom at .collapsible p -->
+              <h3><i class="fas fa-exclamation-circle"></i> Usage</h3>
+              <p>
+                Command: <span class="highlightme">!cookie @user</span>
+              </p>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="far fa-comments"></i> Dab</div>
+            <div class="collapsible-body">
+              <table class="table">
+                <tr>
+                  <td class="td-l"><h3><i class="fas fa-info-circle"></i> Description</h3></td>
+                  <td class="td-r"><h3><i class="fas fa-signature"></i> Alias</h3></td>
+                </tr>
+                <tr>
+                  <td class="td-l"><p>
+                    Dab on someone.
+                  </p></td>
+                  <td class="td-r"><p>
+                    yeet
+                  </p></td>
+                </tr>
+              </table>
+              <h3><i class="fas fa-check-circle"></i> Permissions</h3>
+              <table class="table">
+                <tr>
+                  <td class="td-l"><span class="titleme">User</span></td>
+                  <td class="td-r"><span class="titleme">Servant</span></td>
+                </tr>
+                <tr>
+                  <td class="td-l">None</td>
+                  <td class="td-r">
+                    <span class="highlightme">Read Text Channels & See Voice Channels</span>, <span class="highlightme">Send Messages</span>, <span class="highlightme">Read Message History</span>, 
+                    <span class="highlightme">Embed Links</span>
+                  </td>
+                </tr>
+              </table>
+              <p></p> <!-- For margin-bottom at .collapsible p -->
+              <h3><i class="fas fa-exclamation-circle"></i> Usage</h3>
+              <p>
+                Command: <span class="highlightme">!dab @user</span>
+              </p>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="far fa-comments"></i> Flex</div>
+            <div class="collapsible-body">
+              <table class="table">
+                <tr>
+                  <td class="td-l"><h3><i class="fas fa-info-circle"></i> Description</h3></td>
+                  <td class="td-r"><h3><i class="fas fa-signature"></i> Alias</h3></td>
+                </tr>
+                <tr>
+                  <td class="td-l"><p>
+                    Flex on someone.
+                  </p></td>
+                  <td class="td-r"><p>
+                    None
+                  </p></td>
+                </tr>
+              </table>
+              <h3><i class="fas fa-check-circle"></i> Permissions</h3>
+              <table class="table">
+                <tr>
+                  <td class="td-l"><span class="titleme">User</span></td>
+                  <td class="td-r"><span class="titleme">Servant</span></td>
+                </tr>
+                <tr>
+                  <td class="td-l">None</td>
+                  <td class="td-r">
+                    <span class="highlightme">Read Text Channels & See Voice Channels</span>, <span class="highlightme">Send Messages</span>, <span class="highlightme">Read Message History</span>, 
+                    <span class="highlightme">Embed Links</span>
+                  </td>
+                </tr>
+              </table>
+              <p></p> <!-- For margin-bottom at .collapsible p -->
+              <h3><i class="fas fa-exclamation-circle"></i> Usage</h3>
+              <p>
+                Command: <span class="highlightme">!flex @user</span>
+              </p>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="far fa-comments"></i> Highfive</div>
+            <div class="collapsible-body">
+              <table class="table">
+                <tr>
+                  <td class="td-l"><h3><i class="fas fa-info-circle"></i> Description</h3></td>
+                  <td class="td-r"><h3><i class="fas fa-signature"></i> Alias</h3></td>
+                </tr>
+                <tr>
+                  <td class="td-l"><p>
+                    Give someone a high five.
+                  </p></td>
+                  <td class="td-r"><p>
+                    None
+                  </p></td>
+                </tr>
+              </table>
+              <h3><i class="fas fa-check-circle"></i> Permissions</h3>
+              <table class="table">
+                <tr>
+                  <td class="td-l"><span class="titleme">User</span></td>
+                  <td class="td-r"><span class="titleme">Servant</span></td>
+                </tr>
+                <tr>
+                  <td class="td-l">None</td>
+                  <td class="td-r">
+                    <span class="highlightme">Read Text Channels & See Voice Channels</span>, <span class="highlightme">Send Messages</span>, <span class="highlightme">Read Message History</span>, 
+                    <span class="highlightme">Embed Links</span>
+                  </td>
+                </tr>
+              </table>
+              <p></p> <!-- For margin-bottom at .collapsible p -->
+              <h3><i class="fas fa-exclamation-circle"></i> Usage</h3>
+              <p>
+                Command: <span class="highlightme">!highfive @user</span>
+              </p>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="far fa-comments"></i> Hug</div>
+            <div class="collapsible-body">
+              <table class="table">
+                <tr>
+                  <td class="td-l"><h3><i class="fas fa-info-circle"></i> Description</h3></td>
+                  <td class="td-r"><h3><i class="fas fa-signature"></i> Alias</h3></td>
+                </tr>
+                <tr>
+                  <td class="td-l"><p>
+                    Hug someone.
+                  </p></td>
+                  <td class="td-r"><p>
+                    cuddle
+                  </p></td>
+                </tr>
+              </table>
+              <h3><i class="fas fa-check-circle"></i> Permissions</h3>
+              <table class="table">
+                <tr>
+                  <td class="td-l"><span class="titleme">User</span></td>
+                  <td class="td-r"><span class="titleme">Servant</span></td>
+                </tr>
+                <tr>
+                  <td class="td-l">None</td>
+                  <td class="td-r">
+                    <span class="highlightme">Read Text Channels & See Voice Channels</span>, <span class="highlightme">Send Messages</span>, <span class="highlightme">Read Message History</span>, 
+                    <span class="highlightme">Embed Links</span>
+                  </td>
+                </tr>
+              </table>
+              <p></p> <!-- For margin-bottom at .collapsible p -->
+              <h3><i class="fas fa-exclamation-circle"></i> Usage</h3>
+              <p>
+                Command: <span class="highlightme">!hug @user</span>
+              </p>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="far fa-comments"></i> Kiss</div>
+            <div class="collapsible-body">
+              <table class="table">
+                <tr>
+                  <td class="td-l"><h3><i class="fas fa-info-circle"></i> Description</h3></td>
+                  <td class="td-r"><h3><i class="fas fa-signature"></i> Alias</h3></td>
+                </tr>
+                <tr>
+                  <td class="td-l"><p>
+                    Kiss someone.
+                  </p></td>
+                  <td class="td-r"><p>
+                    None
+                  </p></td>
+                </tr>
+              </table>
+              <h3><i class="fas fa-check-circle"></i> Permissions</h3>
+              <table class="table">
+                <tr>
+                  <td class="td-l"><span class="titleme">User</span></td>
+                  <td class="td-r"><span class="titleme">Servant</span></td>
+                </tr>
+                <tr>
+                  <td class="td-l">None</td>
+                  <td class="td-r">
+                    <span class="highlightme">Read Text Channels & See Voice Channels</span>, <span class="highlightme">Send Messages</span>, <span class="highlightme">Read Message History</span>, 
+                    <span class="highlightme">Embed Links</span>
+                  </td>
+                </tr>
+              </table>
+              <p></p> <!-- For margin-bottom at .collapsible p -->
+              <h3><i class="fas fa-exclamation-circle"></i> Usage</h3>
+              <p>
+                Command: <span class="highlightme">!kiss @user</span>
+              </p>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="far fa-comments"></i> Pat</div>
+            <div class="collapsible-body">
+              <table class="table">
+                <tr>
+                  <td class="td-l"><h3><i class="fas fa-info-circle"></i> Description</h3></td>
+                  <td class="td-r"><h3><i class="fas fa-signature"></i> Alias</h3></td>
+                </tr>
+                <tr>
+                  <td class="td-l"><p>
+                    Pat someone.
+                  </p></td>
+                  <td class="td-r"><p>
+                    pet
+                  </p></td>
+                </tr>
+              </table>
+              <h3><i class="fas fa-check-circle"></i> Permissions</h3>
+              <table class="table">
+                <tr>
+                  <td class="td-l"><span class="titleme">User</span></td>
+                  <td class="td-r"><span class="titleme">Servant</span></td>
+                </tr>
+                <tr>
+                  <td class="td-l">None</td>
+                  <td class="td-r">
+                    <span class="highlightme">Read Text Channels & See Voice Channels</span>, <span class="highlightme">Send Messages</span>, <span class="highlightme">Read Message History</span>, 
+                    <span class="highlightme">Embed Links</span>
+                  </td>
+                </tr>
+              </table>
+              <p></p> <!-- For margin-bottom at .collapsible p -->
+              <h3><i class="fas fa-exclamation-circle"></i> Usage</h3>
+              <p>
+                Command: <span class="highlightme">!pat @user</span>
+              </p>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="far fa-comments"></i> Slap</div>
+            <div class="collapsible-body">
+              <table class="table">
+                <tr>
+                  <td class="td-l"><h3><i class="fas fa-info-circle"></i> Description</h3></td>
+                  <td class="td-r"><h3><i class="fas fa-signature"></i> Alias</h3></td>
+                </tr>
+                <tr>
+                  <td class="td-l"><p>
+                    Slap someone.
+                  </p></td>
+                  <td class="td-r"><p>
+                    hit
+                  </p></td>
+                </tr>
+              </table>
+              <h3><i class="fas fa-check-circle"></i> Permissions</h3>
+              <table class="table">
+                <tr>
+                  <td class="td-l"><span class="titleme">User</span></td>
+                  <td class="td-r"><span class="titleme">Servant</span></td>
+                </tr>
+                <tr>
+                  <td class="td-l">None</td>
+                  <td class="td-r">
+                    <span class="highlightme">Read Text Channels & See Voice Channels</span>, <span class="highlightme">Send Messages</span>, <span class="highlightme">Read Message History</span>, 
+                    <span class="highlightme">Embed Links</span>
+                  </td>
+                </tr>
+              </table>
+              <p></p> <!-- For margin-bottom at .collapsible p -->
+              <h3><i class="fas fa-exclamation-circle"></i> Usage</h3>
+              <p>
+                Command: <span class="highlightme">!slap @user</span>
+              </p>
+            </div>
+          </li>
+      </ul>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          var elems = document.querySelectorAll('.collapsible');
+          var instances = M.Collapsible.init(elems, options);
+        });
+
+        $(document).ready(function(){
+          $('.collapsible').collapsible();
+        });
+        </script>
+    </div>
+    <div class="main-sidebar">
+      <div class="commands-burger-icon"><i class="fas fa-bars"></i> COMMAND CATEGORIES</div>
+      <ul class="commands-nav-items commands-nav mobile-hide">
+        <li class="commands-list-item"><a href="commands_moderation" class="commands-button"><i class="fas fa-user-cog"></i> Moderation</a></li>
+        <li class="commands-list-item"><a href="commands_information" class="commands-button"><i class="fas fa-info-circle"></i> Information</a></li>
+        <li class="commands-list-item"><a href="commands_useful" class="commands-button"><i class="far fa-lightbulb"></i> Useful</a></li>
+        <li class="commands-list-item"><a href="commands_fun" class="commands-button"><i class="fas fa-volleyball-ball"></i> Fun</a></li>
+        <li class="commands-list-item"><a href="commands_interaction" class="commands-button-active"><i class="far fa-comments"></i> Interaction</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="foot1">
+    <h3>Contact</h3>
+    <p><i class="fab fa-discord"></i> Discord Name: Tancred#0001</p>
+    <p><i class="fas fa-at"></i> Email: servant@tanc.red</p>
+  </div>
+  <div class="foot2">
+    <h3>Reference</h3>
+    <p><a href="http://inviteservant.tanc.red/" target="_blank"><img src="images/servant_ava.png">  Invite Servant</a></p>
+    <p><a href="http://servantskingdom.tanc.red/" target="_blank"><i class="fab fa-discord"></i> Servant's Kingdom</a></p>
+    <p><a href="https://top.gg/bot/436916794796670977" target="_blank"><i class="fas fa-robot"></i> Discord Bot List</a></p>
+  </div>
+  <div class="foot3">
+    <h3>Social Media</h3>
+    <p><a href="https://twitter.com/Tancred423" target="_blank"><i class="fab fa-twitter"></i> Twitter: Tancred423</a></p>
+    <p><a href="https://twitter.com/ServantDiscord" target="_blank"><i class="fab fa-twitter"></i> Twitter: ServantDiscord</a></p>
+    <p><a href="https://github.com/Tancred423/" target="_blank"><i class="fab fa-github"></i> GitHub: Tancred423</a></p>
+    </ul>
+  </div>
+  <div class="copyright">&copy; Tancred 2020</div>
+</footer>
+</body>
+</html>

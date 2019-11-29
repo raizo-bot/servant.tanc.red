@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Servant</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="shortcut icon" type="image/x-icon" href="images/servant_ava.png" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Prompt">
+<link rel="stylesheet" href="css/styles.css">
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="js/materialize.js"></script>
+<script src="js/app.js"></script>
+<script src="js/snow.js"></script>
+</head>
+<body>
+<canvas id="sky"></canvas>
+<nav class="nav-wrapper">
+  <div class="logo-wrapper">
+    <a href="/">
+      <div class="logo"> 
+          <img src="images/servant_ava.png">
+          <h1>Servant</h1>
+      </div>
+    </a>
+    <div class="burger-icon"><i class="fas fa-bars"></i> MENU</div>
+  </div>
+  <ul class="nav-items main-nav mobile-hide">
+    <li class="list-item"><a href="/">Home</a></li>
+    <li class="list-item"><a href="commands">Commands</a></li>
+    <li class="list-item"><font color="#7289da">FAQ</font></li>
+    <li class="list-item"><a href="donate">Donate</a></li>
+  </ul>
+</nav>
+<div class="main-wrapper">
+  <div class="faq-wrapper">
+    <div class="faq-featured">
+      <div id="meta"></div>
+      <h1>FAQ</h1>
+    </div>
+    <div class="main-content">
+      <h2>What is Servant?</h2>
+      <p>
+        Servant is a bot for <a href="https://wikipedia.org/wiki/Discord_(software)" target="_blank">Discord</a>, a <a href="https://wikipedia.org/wiki/Voice_over_IP" target="_blank">VoIP</a> application.
+        She will help you to improve your Discord server by organizing and moderating channels, roles and members and by entertaining your members.
+      </p>
+      <p>
+        The name of this bot refers to the anime series <a href="https://typemoon.fandom.com/wiki/Fate_series" target="_blank">Fate</a> where masters fight a war with the help of heroic spirits called servants. 
+        The character I chose is better known as Saber or Artoria Pendragon, but I decided to take the more general title "Servant", as a Discord bot is also kind of a servant.</p>
+      
+      <h2>Why should I use Servant?</h2>
+      <p>
+        Servant is designed to satisfy all your needs for you Discord server. 
+        I personally don't like to have a ton of bots on my server, so I decided to create one, that can do almost everything. 
+        While doing this, it was very important to me, that each feature is high quality as many multipurpose Discord bots have many but poorly designed features.
+      </p>
+
+      <h2>How to get started?</h2>
+      <p>
+        First of all, you may <a href="http://inviteservant.tanc.red/" target="_blank">invite Servant</a> to your Discord server. 
+        After that you should take a look into <span class="highlightme">!help</span> or <a href="commands">Commands</a> to see everything Servant can do.
+        If you need a detailed help for a command, you can either type the command without any arguments, e.g. <span class="highlightme">!avatar</span> or you can look up <a href="commands">Commands</a> once again.
+        To set the basic settings on your server (Language, Prefix, Offset/Timezone), you may run <span class="highlightme">!serversetup</span>.
+      </p>
+
+      <h2>How do I report a bug or suggest a feature?</h2>
+      <p>
+        Join <a href="http://servantskingdom.tanc.red/" target="_blank">Servant's Kingdom</a> (support server) and head to the corresponding section.
+      </p>
+
+      <h2>Why does Servant need permission XY?</h2>
+      <ul class="collapsible">
+        <li>
+          <div class="collapsible-header"><i class="fas fa-user-cog"></i> Manage Roles</div>
+          <div class="collapsible-body">
+            <ul>
+              <li>AutoRole</li>
+              <li>LevelRole</li>
+              <li>Livestream</li>
+              <li>ReactionRole</li>
+              <li>Role</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="fas fa-user-cog"></i> Manage Channels</div>
+          <div class="collapsible-body">
+            <ul>
+              <li>VoiceLobby</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="fas fa-user-cog"></i> Manage Nicknames</div>
+          <div class="collapsible-body">
+            <ul>
+              <li>Flip</li>
+              <li>Unflip</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="fas fa-user-cog"></i> View Channels</div>
+          <div class="collapsible-body">
+            <ul>
+              <li>Any Command</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="far fa-comment"></i> Send Messages</div>
+          <div class="collapsible-body">
+            <ul>
+              <li>Any Command</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="far fa-comment"></i> Manage Messages</div>
+          <div class="collapsible-body">
+            <ul>
+              <li>Clear</li>
+              <li>CreateEmbed</li>
+              <li>EditEmbed</li>
+              <li>MediaOnlyChannel</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="far fa-comment"></i> Embed Links</div>
+          <div class="collapsible-body">
+            <ul>
+              <li>Alarm</li>
+              <li>AutoRole</li>
+              <li>Avatar</li>
+              <li>BestOfImage</li>
+              <li>BestOfQuote</li>
+              <li>Bird</li>
+              <li>Birthday</li>
+              <li>BotInfo</li>
+              <li>Cat</li>
+              <li>Clear</li>
+              <li>Coinflip</li>
+              <li>CreateEmbed</li>
+              <li>Dog</li>
+              <li>EditEmbed</li>
+              <li>Giveaway</li>
+              <li>Interaction Commands (Beg, Cookie, Dab, Flex, Highfive, Hug, Kiss, Pat, Slap)</li>
+              <li>Join</li>
+              <li>Leave</li>
+              <li>LevelRole</li>
+              <li>Livestream</li>
+              <li>Love</li>
+              <li>MediaOnlyChannel</li>
+              <li>Patreon</li>
+              <li>Poll</li>
+              <li>Profile</li>
+              <li>QuickPoll</li>
+              <li>ReactionRole</li>
+              <li>Reminder</li>
+              <li>Role</li>
+              <li>Server</li>
+              <li>ServerInfo</li>
+              <li>ServerSetup</li>
+              <li>Signup</li>
+              <li>Timezone</li>
+              <li>Toggle</li>
+              <li>User</li>
+              <li>VoiceLobby</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="far fa-comment"></i> Read Message History</div>
+          <div class="collapsible-body">
+            <ul>
+              <li>Any Command</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="far fa-comment"></i> Mention Everyone</div>
+          <div class="collapsible-body">
+            <ul>
+              <li>Livestream</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="far fa-comment"></i> Use External Emojis</div>
+          <div class="collapsible-body">
+            <ul>
+              <li>Baguette</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="far fa-comment"></i> Add Reactions</div>
+          <div class="collapsible-body">
+            <ul>
+              <li>BestOfImage</li>
+              <li>BestOfQuote</li>
+              <li>CreateEmbed</li>
+              <li>EditEmbed</li>
+              <li>Giveaway</li>
+              <li>Poll</li>
+              <li>QuickPoll</li>
+              <li>ReactionRole</li>
+              <li>Signup</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="fas fa-microphone"></i> Move Members</div>
+          <div class="collapsible-body">
+            <ul>
+              <li>VoiceLobby</li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          var elems = document.querySelectorAll('.collapsible');
+          var instances = M.Collapsible.init(elems, options);
+        });
+
+        $(document).ready(function(){
+          $('.collapsible').collapsible();
+        });
+        </script>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="foot1">
+    <h3>Contact</h3>
+    <p><i class="fab fa-discord"></i> Discord Name: Tancred#0001</p>
+    <p><i class="fas fa-at"></i> Email: servant@tanc.red</p>
+  </div>
+  <div class="foot2">
+    <h3>Reference</h3>
+    <p><a href="http://inviteservant.tanc.red/" target="_blank"><img src="images/servant_ava.png">  Invite Servant</a></p>
+    <p><a href="http://servantskingdom.tanc.red/" target="_blank"><i class="fab fa-discord"></i> Servant's Kingdom</a></p>
+    <p><a href="https://top.gg/bot/436916794796670977" target="_blank"><i class="fas fa-robot"></i> Discord Bot List</a></p>
+  </div>
+  <div class="foot3">
+    <h3>Social Media</h3>
+    <p><a href="https://twitter.com/Tancred423" target="_blank"><i class="fab fa-twitter"></i> Twitter: Tancred423</a></p>
+    <p><a href="https://twitter.com/ServantDiscord" target="_blank"><i class="fab fa-twitter"></i> Twitter: ServantDiscord</a></p>
+    <p><a href="https://github.com/Tancred423/" target="_blank"><i class="fab fa-github"></i> GitHub: Tancred423</a></p>
+    </ul>
+  </div>
+  <div class="copyright">&copy; Tancred 2020</div>
+</footer>
+</body>
+</html>

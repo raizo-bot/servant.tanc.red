@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Servant</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="shortcut icon" type="image/x-icon" href="images/servant_ava.png" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Prompt">
+<link rel="stylesheet" href="css/styles.css">
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="js/materialize.js"></script>
+<script src="js/app.js"></script>
+<script src="js/snow.js"></script>
+</head>
+<body>
+<canvas id="sky"></canvas>
+<nav class="nav-wrapper">
+  <div class="logo-wrapper">
+    <a href="/">
+      <div class="logo"> 
+          <img src="images/servant_ava.png">
+          <h1>Servant</h1>
+      </div>
+    </a>
+    <div class="burger-icon"><i class="fas fa-bars"></i> MENU</div>
+  </div>
+  <ul class="nav-items main-nav mobile-hide">
+    <li class="list-item"><a href="/">Home</a></li>
+    <li class="list-item"><font color="#7289da">Commands</font></li>
+    <li class="list-item"><a href="faq">FAQ</a></li>
+    <li class="list-item"><a href="donate">Donate</a></li>
+  </ul>
+</nav>
+<div class="main-wrapper">
+  <div class="commands-wrapper">
+    <div class="commands-featured">
+      <div id="meta"></div>
+      <h1>Commands</h1>
+    </div>
+    <div class="main-content">
+      <ul class="collapsible">
+        <li>
+          <div class="collapsible-header"><i class="far fa-lightbulb"></i> Alarm</div>
+          <div class="collapsible-body">
+            <table class="table">
+              <tr>
+                <td class="td-l"><h3><i class="fas fa-info-circle"></i> Description</h3></td>
+                <td class="td-r"><h3><i class="fas fa-signature"></i> Alias</h3></td>
+              </tr>
+              <tr>
+                <td class="td-l"><p>
+                  Set up an alarm to a specific time.<br/>
+                  The date and time will take your timezone into account.<br/>
+                  If you didn't set one up, it will use UTC.<br/>
+                  To set one up, use the <span class="highlightme">!user</span> command.
+                </p></td>
+                <td class="td-r"><p>
+                  None
+                </p></td>
+              </tr>
+            </table>
+            <h3><i class="fas fa-check-circle"></i> Permissions</h3>
+            <table class="table">
+              <tr>
+                <td class="td-l"><span class="titleme">User</span></td>
+                <td class="td-r"><span class="titleme">Servant</span></td>
+              </tr>
+              <tr>
+                <td class="td-l">None</td>
+                <td class="td-r">
+                  <span class="highlightme">Read Text Channels & See Voice Channels</span>, <span class="highlightme">Send Messages</span>, <span class="highlightme">Read Message History</span>, 
+                  <span class="highlightme">Embed Links</span>
+                </td>
+              </tr>
+            </table>
+            <p></p> <!-- For margin-bottom at .collapsible p -->
+            <h3><i class="fas fa-exclamation-circle"></i> Usage</h3>
+            <p>
+              <span class="titleme">Set an alarm</span><br/>
+              Command: <span class="highlightme">!alarm \"Optional Title\" [time]</span><br/>
+              Example 1: <span class="highlightme">!alarm \"Pat Servant\" 3d 2h 1m</span><br/>
+              Example 2: <span class="highlightme">!alarm 5m</span>
+            </p>
+            <h3><i class="fas fa-comment-dots"></i> Hint</h3>
+            <p>
+              Time formats: d = days, h = hours, m = minutes<br/>
+              <ul>
+                <li>Also, you can use as many time-arguments as you want</li>
+                <li>Example: <span class="highlightme">!alarm \"Pat Servant\" 2d 12h 36m 1d</span></li>
+                <li>Time result: <span class="highlightme">2d</span> + <span class="highlightme">12h</span> + <span class="highlightme">36m</span> + <span class="highlightme">1d</span> = 3 days, 12 hours, 36 minutes</li>
+              </ul>
+              Minutes are rounded. If you put in <span class="highlightme">1m</span>, you will be notifies on the <strong>next</strong> minute.<br/>
+              Seconds are not supported.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="far fa-lightbulb"></i> Giveaway</div>
+          <div class="collapsible-body">
+            <table class="table">
+              <tr>
+                <td class="td-l"><h3><i class="fas fa-info-circle"></i> Description</h3></td>
+                <td class="td-r"><h3><i class="fas fa-signature"></i> Alias</h3></td>
+              </tr>
+              <tr>
+                <td class="td-l"><p>
+                  Start a giveaway that draws a given amount of people as winners after a given time.<br/>
+                  List all running giveaways of the current server.
+                </p></td>
+                <td class="td-r"><p>
+                  None
+                </p></td>
+              </tr>
+            </table>
+            <h3><i class="fas fa-check-circle"></i> Permissions</h3>
+            <table class="table">
+              <tr>
+                <td class="td-l"><span class="titleme">User</span></td>
+                <td class="td-r"><span class="titleme">Servant</span></td>
+              </tr>
+              <tr>
+                <td class="td-l">None</td>
+                <td class="td-r">
+                  <span class="highlightme">Read Text Channels & See Voice Channels</span>, <span class="highlightme">Send Messages</span>, <span class="highlightme">Read Message History</span>, 
+                  <span class="highlightme">Embed Links</span>, <span class="highlightme">Add Reactions</span>
+                </td>
+              </tr>
+            </table>
+            <p></p> <!-- For margin-bottom at .collapsible p -->
+            <h3><i class="fas fa-exclamation-circle"></i> Usage</h3>
+            <p>
+              <span class="titleme">Start giveaway</span><br/>
+              Command: <span class="highlightme">!giveaway "[prize name]" [amount of winners] [time]</span><br>
+              Example: <span class="highlightme">!giveaway "100 Cookies" 1 12h</span>
+            </p>
+            <p>
+              <span class="titleme">List giveaways</span><br/>
+              Command: <span class="highlightme">!giveaway list</span>
+            </p>
+            <h3><i class="fas fa-comment-dots"></i> Hint</h3>
+            <p>
+              "Time formats: d = days, h = hours, m = minutes
+              <ul>
+                <li>Also, you can use as many time-arguments as you want</li>
+                <li>Example: <span class="highlightme">giveaway "100 cookies" 1 2d 12h 36m 1d</span></li>
+                <li>Time result: <span class="highlightme">2d</span> + <span class="highlightme">12h</span> + <span class="highlightme">36m</span> + <span class="highlightme">1d</span> = 3 days, 12 hours, 36 minutes</li>
+              </ul>
+              Seconds are not supported.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="far fa-lightbulb"></i> Poll</div>
+          <div class="collapsible-body">
+            <table class="table">
+              <tr>
+                <td class="td-l"><h3><i class="fas fa-info-circle"></i> Description</h3></td>
+                <td class="td-r"><h3><i class="fas fa-signature"></i> Alias</h3></td>
+              </tr>
+              <tr>
+                <td class="td-l"><p>
+                  Create a poll with up to 10 custom answers.
+                </p></td>
+                <td class="td-r"><p>
+                  vote
+                </p></td>
+              </tr>
+            </table>
+            <h3><i class="fas fa-check-circle"></i> Permissions</h3>
+            <table class="table">
+              <tr>
+                <td class="td-l"><span class="titleme">User</span></td>
+                <td class="td-r"><span class="titleme">Servant</span></td>
+              </tr>
+              <tr>
+                <td class="td-l">None</td>
+                <td class="td-r">
+                  <span class="highlightme">Read Text Channels & See Voice Channels</span>, <span class="highlightme">Send Messages</span>, <span class="highlightme">Read Message History</span>, 
+                  <span class="highlightme">Embed Links</span>, <span class="highlightme">Add Reactions</span>
+                </td>
+              </tr>
+            </table>
+            <p></p> <!-- For margin-bottom at .collapsible p -->
+            <h3><i class="fas fa-exclamation-circle"></i> Usage</h3>
+            <p>
+              Command: <span class="highlightme">!poll [question]/[answer1]/(...)/[answer10]</span>
+              Example: <span class="highlightme"> When do you have time?/Mon/Tue/Wed/Thu/Fri/Sat/Sun</span>
+            </p>
+            <h3><i class="fas fa-comment-dots"></i> Hint</h3>
+            <p>
+              After executing this command, you will be asked if you want to allow multiple answers.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="far fa-lightbulb"></i> QuickPoll</div>
+          <div class="collapsible-body">
+            <table class="table">
+              <tr>
+                <td class="td-l"><h3><i class="fas fa-info-circle"></i> Description</h3></td>
+                <td class="td-r"><h3><i class="fas fa-signature"></i> Alias</h3></td>
+              </tr>
+              <tr>
+                <td class="td-l"><p>
+                  Smol poll with yes/no.
+                </p></td>
+                <td class="td-r"><p>
+                  quickvote
+                </p></td>
+              </tr>
+            </table>
+            <h3><i class="fas fa-check-circle"></i> Permissions</h3>
+            <table class="table">
+              <tr>
+                <td class="td-l"><span class="titleme">User</span></td>
+                <td class="td-r"><span class="titleme">Servant</span></td>
+              </tr>
+              <tr>
+                <td class="td-l">None</td>
+                <td class="td-r">
+                  <span class="highlightme">Read Text Channels & See Voice Channels</span>, <span class="highlightme">Send Messages</span>, <span class="highlightme">Read Message History</span>, 
+                  <span class="highlightme">Embed Links</span>, <span class="highlightme">Add Reactions</span>
+                </td>
+              </tr>
+            </table>
+            <p></p> <!-- For margin-bottom at .collapsible p -->
+            <h3><i class="fas fa-exclamation-circle"></i> Usage</h3>
+            <p>
+              <span class="titleme">Start quick poll</span><br/>
+              Command: <span class="highlightme">!quickpoll [your question]</span><br>
+              Example: <span class="highlightme">!quickpoll Create a meme channel?</span>
+            </p>
+            <h3><i class="fas fa-comment-dots"></i> Hint</h3>
+            <p>
+              You can use this command without question to make an empty poll.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="far fa-lightbulb"></i> Reminder</div>
+          <div class="collapsible-body">
+            <table class="table">
+              <tr>
+                <td class="td-l"><h3><i class="fas fa-info-circle"></i> Description</h3></td>
+                <td class="td-r"><h3><i class="fas fa-signature"></i> Alias</h3></td>
+              </tr>
+              <tr>
+                <td class="td-l"><p>
+                    Set up a reminder to a specific date and time.<br/>
+                    The date and time will take your timezone into account.<br/>
+                    If you didn't set one up, it will use UTC.<br/>
+                    To set one up, use the `%suser` command.<br/>
+                    You can add a topic about what you want to be reminded.
+                </p></td>
+                <td class="td-r"><p>
+                  remindme
+                </p></td>
+              </tr>
+            </table>
+            <h3><i class="fas fa-check-circle"></i> Permissions</h3>
+            <table class="table">
+              <tr>
+                <td class="td-l"><span class="titleme">User</span></td>
+                <td class="td-r"><span class="titleme">Servant</span></td>
+              </tr>
+              <tr>
+                <td class="td-l">None</td>
+                <td class="td-r">
+                  <span class="highlightme">Read Text Channels & See Voice Channels</span>, <span class="highlightme">Send Messages</span>, <span class="highlightme">Read Message History</span>, 
+                  <span class="highlightme">Embed Links</span>
+                </td>
+              </tr>
+            </table>
+            <p></p> <!-- For margin-bottom at .collapsible p -->
+            <h3><i class="fas fa-exclamation-circle"></i> Usage</h3>
+            <p>
+              Command: <span class="highlightme">!reminder yyyy-MM-dd HH:mm [topic]</span><br/>
+              Example: <span class="highlightme">!reminder 2020-01-01 00:00 Happy New Year</span>
+            </p>
+            <h3><i class="fas fa-comment-dots"></i> Hint</h3>
+            <p>
+              You cannot set reminders in the past.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="far fa-lightbulb"></i> Signup</div>
+          <div class="collapsible-body">
+            <table class="table">
+              <tr>
+                <td class="td-l"><h3><i class="fas fa-info-circle"></i> Description</h3></td>
+                <td class="td-r"><h3><i class="fas fa-signature"></i> Alias</h3></td>
+              </tr>
+              <tr>
+                <td class="td-l"><p>
+                  Let people sign up for an event (e.g. a raid).<br/>
+                  The signup will be completed if either of the following happens:<br/>
+                  1. The given amount of people have signed up (reacted).<br/>
+                  2. The given expiring date (or the default one if not given) was reached (see last hint).<br/>
+                  3. The signup creator clicked the :x: reaction.
+                </p></td>
+                <td class="td-r"><p>
+                  event
+                </p></td>
+              </tr>
+            </table>
+            <h3><i class="fas fa-check-circle"></i> Permissions</h3>
+            <table class="table">
+              <tr>
+                <td class="td-l"><span class="titleme">User</span></td>
+                <td class="td-r"><span class="titleme">Servant</span></td>
+              </tr>
+              <tr>
+                <td class="td-l">None</td>
+                <td class="td-r">
+                  <span class="highlightme">Read Text Channels & See Voice Channels</span>, <span class="highlightme">Send Messages</span>, <span class="highlightme">Read Message History</span>, 
+                  <span class="highlightme">Embed Links</span>, <span class="highlightme">Add Reactions</span>
+                </td>
+              </tr>
+            </table>
+            <p></p> <!-- For margin-bottom at .collapsible p -->
+            <h3><i class="fas fa-exclamation-circle"></i> Usage</h3>
+            <p>
+              Command: <span class="highlightme">!signup "Title" [amount of people] [event date and time]</span><br/>
+              Example 1: <span class="highlightme">!signup "Holy Grail War" 10 2019-12-31 23:30</span><br/>
+              Example 2: <span class="highlightme">!signup 10 2019-12-31 23:30</span><br/>
+              Example 3: <span class="highlightme">!signup "Holy Grail War" 10</span><br/>
+              Example 4: <span class="highlightme">!signup 10</span>
+            </p>
+            <h3><i class="fas fa-comment-dots"></i> Hint</h3>
+            <p>
+              <ul>
+                <li>The amount of people that are allowed to sign up has to be within 1 and 100.</li>
+                <li>The event date and time has to be within the next 4 weeks.</li>
+                <li>If you don't set the event date and time, the signup will expire in 4 weeks.</li>
+                <li>The event date and time will use the server's offset. You can check it via <span class="highlightme">!serverinfo</span> -> Servant Settings -> Offset</li>
+                <li>If you set an event date, the signup will expire 30 minutes earlier, so you have time to organize the group.</li>
+              </ul>
+            </p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="far fa-lightbulb"></i> Timezone</div>
+          <div class="collapsible-body">
+            <table class="table">
+              <tr>
+                <td class="td-l"><h3><i class="fas fa-info-circle"></i> Description</h3></td>
+                <td class="td-r"><h3><i class="fas fa-signature"></i> Alias</h3></td>
+              </tr>
+              <tr>
+                <td class="td-l"><p>
+                  Convert a date and time from one timezone to another.
+                </p></td>
+                <td class="td-r"><p>
+                  None
+                </p></td>
+              </tr>
+            </table>
+            <h3><i class="fas fa-check-circle"></i> Permissions</h3>
+            <table class="table">
+              <tr>
+                <td class="td-l"><span class="titleme">User</span></td>
+                <td class="td-r"><span class="titleme">Servant</span></td>
+              </tr>
+              <tr>
+                <td class="td-l">None</td>
+                <td class="td-r">
+                  <span class="highlightme">Read Text Channels & See Voice Channels</span>, <span class="highlightme">Send Messages</span>, <span class="highlightme">Read Message History</span>, 
+                  <span class="highlightme">Embed Links</span>
+                </td>
+              </tr>
+            </table>
+            <p></p> <!-- For margin-bottom at .collapsible p -->
+            <h3><i class="fas fa-exclamation-circle"></i> Usage</h3>
+            <p>
+              Command: <span class="highlightme">!timezone yyyy-MM-dd HH:mm [current timezone] [target timezone]</span>
+              Example: <span class="highlightme">!timezone 2019-01-01 22:00 PST CET</span>
+            </p>
+            <h3><i class="fas fa-comment-dots"></i> Hint</h3>
+            <p>
+              This command uses the 24 hour system.
+            </p>
+          </div>
+        </li>
+      </ul>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          var elems = document.querySelectorAll('.collapsible');
+          var instances = M.Collapsible.init(elems, options);
+        });
+
+        $(document).ready(function(){
+          $('.collapsible').collapsible();
+        });
+        </script>
+    </div>
+    <div class="main-sidebar">
+      <div class="commands-burger-icon"><i class="fas fa-bars"></i> COMMAND CATEGORIES</div>
+      <ul class="commands-nav-items commands-nav mobile-hide">
+        <li class="commands-list-item"><a href="commands_moderation" class="commands-button"><i class="fas fa-user-cog"></i> Moderation</a></li>
+        <li class="commands-list-item"><a href="commands_information" class="commands-button"><i class="fas fa-info-circle"></i> Information</a></li>
+        <li class="commands-list-item"><a href="commands_useful" class="commands-button-active"><i class="far fa-lightbulb"></i> Useful</a></li>
+        <li class="commands-list-item"><a href="commands_fun" class="commands-button"><i class="fas fa-volleyball-ball"></i> Fun</a></li>
+        <li class="commands-list-item"><a href="commands_interaction" class="commands-button"><i class="far fa-comments"></i> Interaction</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="foot1">
+    <h3>Contact</h3>
+    <p><i class="fab fa-discord"></i> Discord Name: Tancred#0001</p>
+    <p><i class="fas fa-at"></i> Email: servant@tanc.red</p>
+  </div>
+  <div class="foot2">
+    <h3>Reference</h3>
+    <p><a href="http://inviteservant.tanc.red/" target="_blank"><img src="images/servant_ava.png">  Invite Servant</a></p>
+    <p><a href="http://servantskingdom.tanc.red/" target="_blank"><i class="fab fa-discord"></i> Servant's Kingdom</a></p>
+    <p><a href="https://top.gg/bot/436916794796670977" target="_blank"><i class="fas fa-robot"></i> Discord Bot List</a></p>
+  </div>
+  <div class="foot3">
+    <h3>Social Media</h3>
+    <p><a href="https://twitter.com/Tancred423" target="_blank"><i class="fab fa-twitter"></i> Twitter: Tancred423</a></p>
+    <p><a href="https://twitter.com/ServantDiscord" target="_blank"><i class="fab fa-twitter"></i> Twitter: ServantDiscord</a></p>
+    <p><a href="https://github.com/Tancred423/" target="_blank"><i class="fab fa-github"></i> GitHub: Tancred423</a></p>
+    </ul>
+  </div>
+  <div class="copyright">&copy; Tancred 2020</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,5 @@
+Dark 	Gray	#202225
+Medium 	Gray	#2f3136
+Light 	Gray	#36393f
+White		    #ffffff
+Discord Blue	#7289da
