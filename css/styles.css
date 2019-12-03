@@ -344,11 +344,13 @@ template {
   box-sizing: border-box;
 
 }
+
 body{
   font-family: 'Prompt', sans-serif;
   background-color: #202225;
   background-size:cover;
 }
+
 a {
   color: inherit;
 }
