@@ -574,7 +574,7 @@ ul li {
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 10px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .sub-featured a {
@@ -767,10 +767,13 @@ a.commands-button-active {
 }
 
 /* Donate */
-.donate-sub1, .donate-sub2, .donate-sub3 {
+.donate-sub1, .donate-sub2, .donate-sub3, .donate-sub4 {
+  margin: auto;
 	border: 3px solid white;
   background-color:#2f3136;
   padding: 20px;
+  max-width: 75%;
+  min-width: 450px;
 }
 
 .donatechart, .donatechart p {
@@ -779,8 +782,7 @@ a.commands-button-active {
 
 .donatechartdescription p {
 	text-align: justify;
-	height: 200px;
-	width: 90%;
+  height: 200px;
 }
 
 .donate img {
@@ -941,10 +943,15 @@ a.button {
   .sub1, .sub2, .sub3 {
     height: 100px;
   }
+
+  .donate-sub1, .donate-sub2, .donate-sub3, .donate-sub4 {
+    min-width: 0;
+    max-width: 100%;
+  }
 }
 
 /* MOBILE MEDIA QUERY */
-@media screen and (max-width: 690px) {
+@media screen and (max-width: 690px) {  
   .logo-wrapper {
     display: inline-block;
     display: inline;
@@ -1039,5 +1046,14 @@ a.button {
 
   .sub1, .sub2, .sub3 {
     height: 150px;
+  }
+
+  td {
+    width: 100%;
+    overflow: auto;
+  }
+
+  .donate-sub1, .donate-sub2, .donate-sub3, .donate-sub4 {
+    margin: 0;
   }
 }
