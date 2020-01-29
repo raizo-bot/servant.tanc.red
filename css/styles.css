@@ -441,7 +441,7 @@ ul li {
   margin-left: 10px;
   text-transform: uppercase;
   font-weight: bold;
-  padding: 10px;
+  padding: 10px 0 10px 10px;
   transition: .25s;
 }
 
@@ -918,9 +918,13 @@ a.button {
     text-align: center;
   }
 
+  .list-item {
+    padding: 10px;
+  }
+
   .commands-nav-items {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     padding: 0;
     margin-bottom: 0;
   }
