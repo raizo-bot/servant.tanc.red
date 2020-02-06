@@ -415,7 +415,8 @@ ul li {
   margin-left: 15px;
   display: block;
   margin: 2px 0 0 0;
-  background: -webkit-linear-gradient(#eee, #7289da);
+  /* background: -webkit-linear-gradient(#eee, #7289da); */
+  background: #b8687d;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

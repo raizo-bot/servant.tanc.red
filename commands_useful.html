@@ -41,7 +41,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="js/materialize.js"></script>
 <script src="js/app.js"></script>
-<script src="js/snow.js"></script>
+<!-- <script src="js/snow.js"></script> -->
 </head>
 <body>
 <canvas id="sky"></canvas>
@@ -70,61 +70,6 @@
     </div>
     <div class="main-content">
       <ul class="collapsible">
-        <li>
-          <div class="collapsible-header"><i class="far fa-lightbulb"></i> Alarm</div>
-          <div class="collapsible-body">
-            <table class="table">
-              <tr>
-                <td class="td-l"><h3><i class="fas fa-info-circle"></i> Description</h3></td>
-                <td class="td-r"><h3><i class="fas fa-signature"></i> Alias</h3></td>
-              </tr>
-              <tr>
-                <td class="td-l"><p>
-                  Set up an alarm to a specific time.<br/>
-                  The date and time will take your timezone into account.<br/>
-                  If you didn't set one up, it will use UTC.<br/>
-                  To set one up, use the <span class="highlightme">!user</span> command.
-                </p></td>
-                <td class="td-r"><p>
-                  None
-                </p></td>
-              </tr>
-            </table>
-            <h3><i class="fas fa-check-circle"></i> Permissions</h3>
-            <table class="table">
-              <tr>
-                <td class="td-l"><span class="titleme">User</span></td>
-                <td class="td-r"><span class="titleme">Servant</span></td>
-              </tr>
-              <tr>
-                <td class="td-l">None</td>
-                <td class="td-r">
-                  <span class="highlightme">Read Text Channels & See Voice Channels</span>, <span class="highlightme">Send Messages</span>, <span class="highlightme">Read Message History</span>, 
-                  <span class="highlightme">Embed Links</span>
-                </td>
-              </tr>
-            </table>
-            <p></p> <!-- For margin-bottom at .collapsible p -->
-            <h3><i class="fas fa-exclamation-circle"></i> Usage</h3>
-            <p>
-              <span class="titleme">Set an alarm</span><br/>
-              Command: <span class="highlightme">!alarm "Optional Title" [time]</span><br/>
-              Example 1: <span class="highlightme">!alarm "Pat Servant" 3d 2h 1m</span><br/>
-              Example 2: <span class="highlightme">!alarm 5m</span>
-            </p>
-            <h3><i class="fas fa-comment-dots"></i> Hint</h3>
-            <p>
-              Time formats: d = days, h = hours, m = minutes<br/>
-              <ul>
-                <li>Also, you can use as many time-arguments as you want</li>
-                <li>Example: <span class="highlightme">!alarm "Pat Servant" 2d 12h 36m 1d</span></li>
-                <li>Time result: <span class="highlightme">2d</span> + <span class="highlightme">12h</span> + <span class="highlightme">36m</span> + <span class="highlightme">1d</span> = 3 days, 12 hours, 36 minutes</li>
-              </ul>
-              Minutes are rounded. If you put in <span class="highlightme">1m</span>, you will be notifies on the <strong>next</strong> minute.<br/>
-              Seconds are not supported.
-            </p>
-          </div>
-        </li>
         <li>
           <div class="collapsible-header"><i class="far fa-lightbulb"></i> Giveaway</div>
           <div class="collapsible-body">
@@ -161,7 +106,7 @@
             <h3><i class="fas fa-exclamation-circle"></i> Usage</h3>
             <p>
               <span class="titleme">Start giveaway</span><br/>
-              Command: <span class="highlightme">!giveaway "[prize name]" [amount of winners] [time]</span><br>
+              Command: <span class="highlightme">!giveaway "[prize name]" [amount of winners] [time]</span><br/>
               Example: <span class="highlightme">!giveaway "100 Cookies" 1 12h</span>
             </p>
             <p>
@@ -259,7 +204,7 @@
             <h3><i class="fas fa-exclamation-circle"></i> Usage</h3>
             <p>
               <span class="titleme">Start quick poll</span><br/>
-              Command: <span class="highlightme">!quickpoll [your question]</span><br>
+              Command: <span class="highlightme">!quickpoll [your question]</span><br/>
               Example: <span class="highlightme">!quickpoll Create a meme channel?</span>
             </p>
             <h3><i class="fas fa-comment-dots"></i> Hint</h3>
@@ -270,7 +215,7 @@
           </div>
         </li>
         <li>
-          <div class="collapsible-header"><i class="far fa-lightbulb"></i> Reminder</div>
+          <div class="collapsible-header"><i class="far fa-lightbulb"></i> RemindMe</div>
           <div class="collapsible-body">
             <table class="table">
               <tr>
@@ -279,14 +224,11 @@
               </tr>
               <tr>
                 <td class="td-l"><p>
-                    Set up a reminder to a specific date and time.<br/>
-                    The date and time will take your timezone into account.<br/>
-                    If you didn't set one up, it will use UTC.<br/>
-                    To set one up, use the `%suser` command.<br/>
-                    You can add a topic about what you want to be reminded.
+                  Set up an RemindMe to a specific time.
                 </p></td>
                 <td class="td-r"><p>
-                  remindme
+                  reminder<br/>
+                  alarm
                 </p></td>
               </tr>
             </table>
@@ -307,12 +249,31 @@
             <p></p> <!-- For margin-bottom at .collapsible p -->
             <h3><i class="fas fa-exclamation-circle"></i> Usage</h3>
             <p>
-              Command: <span class="highlightme">!reminder yyyy-MM-dd HH:mm [topic]</span><br/>
-              Example: <span class="highlightme">!reminder 2020-01-01 00:00 Happy New Year</span>
+              Command: <span class="highlightme">!remindme "Optional Topic" [time]</span><br/>
+              <br/>
+              <strong>Example 1 → Using Time Arguments</strong><br/>
+              With topic: <span class="highlightme">!remindme "Pat Servant" 3d 2h 1m</span><br/>
+              Without topic: <span class="highlightme">!remindme 3d 2h 1m</span><br/>
+              <br/>
+              <strong>Example 2 → Using a Date and Time</strong><br/>
+              With topic: <span class="highlightme">!remindme "Pat Servant" 2020-31-12 23:59</span><br/>
+              Without topic: <span class="highlightme">!remindme 2020-31-12 23:59</span>
             </p>
             <h3><i class="fas fa-comment-dots"></i> Hint</h3>
             <p>
-              You cannot set reminders in the past.
+              <strong>Time Arguments</strong><br/>
+              - Time formats: d = days, h = hours, m = minutes<br/>
+              ⤷ Also, you can use as many time arguments as you want<br/>
+              ⤷ Example: <span class="highlightme">!remindme "Pat Servant" 2d 12h 36m 1d</span><br/>
+              ⤷ Time result: <span class="highlightme">2d</span> + <span class="highlightme">12h</span> + <span class="highlightme">36m</span> + <span class="highlightme">1d</span> = 3 days, 12 hours, 36 minutes<br/>
+              - Seconds are not supported.<br/>
+              <br/>
+              <strong>Date and Time</strong><br/>
+              - You cannot set reminders in the past.<br/>
+              - You have to use the 24-hour system.<br/>
+              - It take your timezone into account.<br/>
+              ⤷ If you didn't set one up, it will use UTC.<br/>
+              ⤷ To set one up, use the <span class="highlightme">!user</span> command.
             </p>
           </div>
         </li>
