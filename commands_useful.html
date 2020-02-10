@@ -224,7 +224,9 @@
               </tr>
               <tr>
                 <td class="td-l"><p>
-                  Set up an RemindMe to a specific time.
+                  Set up an RemindMe to a specific time.<br/>
+                  Other members can upvote the RemindMe to also get reminded.<br/>
+                  The RemindMe will have a jump URL to the context.
                 </p></td>
                 <td class="td-r"><p>
                   reminder<br/>
@@ -261,6 +263,9 @@
             </p>
             <h3><i class="fas fa-comment-dots"></i> Hint</h3>
             <p>
+              - The command author will always be reminded, even without upvoting.<br/>
+              - A RemindMe must not be further in the future than 1 month.<br/>
+              <br/>
               <strong>Time Arguments</strong><br/>
               - Time formats: d = days, h = hours, m = minutes<br/>
               ⤷ Also, you can use as many time arguments as you want<br/>
@@ -315,7 +320,7 @@
             <p></p> <!-- For margin-bottom at .collapsible p -->
             <h3><i class="fas fa-exclamation-circle"></i> Usage</h3>
             <p>
-              Command: <span class="highlightme">!signup "Title" [amount of people] [event date and time]</span><br/>
+              Command: <span class="highlightme">!signup "Title" [amount of participants] [event date and time]</span><br/>
               Example 1: <span class="highlightme">!signup "Holy Grail War" 10 2019-12-31 23:30</span><br/>
               Example 2: <span class="highlightme">!signup 10 2019-12-31 23:30</span><br/>
               Example 3: <span class="highlightme">!signup "Holy Grail War" 10</span><br/>
@@ -324,10 +329,10 @@
             <h3><i class="fas fa-comment-dots"></i> Hint</h3>
             <p>
               <ul>
-                <li>The amount of people that are allowed to sign up has to be within 1 and 100.</li>
+                <li>The amount of participants has to be within 1 and 100.</li>
                 <li>The event date and time has to be within the next 4 weeks.</li>
                 <li>If you don't set the event date and time, the signup will expire in 4 weeks.</li>
-                <li>The event date and time will use the server's offset. You can check it via <span class="highlightme">!serverinfo</span> -> Servant Settings -> Offset</li>
+                <li>The event date and time will use the server's offset. You can check it by typing <span class="highlightme">!serverinfo</span> -> Servant Settings -> Offset</li>
                 <li>If you set an event date, the signup will expire 30 minutes earlier, so you have time to organize the group.</li>
               </ul>
             </p>
